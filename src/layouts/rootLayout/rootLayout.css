@@ -1,0 +1,11 @@
+.rootLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+}
+
+main {
+  background: #31629a84;
+  flex: 1;
+}
