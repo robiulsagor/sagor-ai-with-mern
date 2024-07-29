@@ -1,2 +1,133 @@
 .container {
+  display: flex;
+  height: 100%;
+  position: relative;
+
+  /* @media screen and (max-width: 690px) {
+    flex-direction: column;
+  } */
+
+  .left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+
+    h1 {
+      font-size: 118px;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #1732ba, #9b085e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+
+      @media screen and (max-width: 400px) {
+        font-size: 40px;
+      }
+
+      @media screen and (min-width: 400px) and (max-width: 690px) {
+        font-size: 56px;
+      }
+    }
+
+    h2 {
+      @media screen and (max-width: 400px) {
+        font-size: 22px;
+      }
+    }
+
+    p {
+      max-width: 70%;
+      text-align: center;
+      margin-top: 20px;
+
+      @media screen and (max-width: 400px) {
+        display: none;
+      }
+    }
+
+    a {
+      background: #1732ba;
+      padding: 12px 20px;
+      margin-top: 20px;
+      text-transform: uppercase;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: small;
+      transition: 0.2s;
+
+      &:hover {
+        background: #1f3dd4;
+      }
+    }
+  }
+
+  .right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 1200px) {
+      display: none;
+    }
+
+    .right-container {
+      position: relative;
+      width: 400px;
+      height: 300px;
+      border-radius: 20px;
+      background: #17183bfb;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .bgImgRight {
+        width: 150%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 150%;
+        opacity: 0.7;
+        animation: animateLeftRight 3s ease-in-out alternate infinite;
+      }
+
+      .botImg {
+        width: 250px;
+        z-index: 10;
+      }
+    }
+  }
+}
+
+.bgImg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0.06;
+
+  animation: animateOrbital 5s linear infinite alternate;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+@keyframes animateOrbital {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes animateLeftRight {
+  0% {
+    transform: translateX(-40px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }

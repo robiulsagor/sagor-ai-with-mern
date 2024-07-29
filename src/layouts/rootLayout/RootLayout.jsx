@@ -1,5 +1,5 @@
+import { Outlet } from "react-router-dom";
 import { Header } from "../../components/header/Header";
-import Home from "../../pages/home/Home";
 import "./rootLayout.css";
 
 const RootLayout = () => {
@@ -7,8 +7,7 @@ const RootLayout = () => {
     <div className="rootLayout">
       <Header />
       <main>
-        {/* <p>the main page goes here</p> */}
-        <Home />
+        <Outlet />
       </main>
     </div>
   );
