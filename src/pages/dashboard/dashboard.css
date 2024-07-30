@@ -4,9 +4,9 @@
   justify-content: center;
   height: 100%;
   flex-direction: column;
+  overflow-x: hidden;
 
   .top {
-    /* background: rgb(48, 48, 134); */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,6 +22,18 @@
 
       img {
         width: 100px;
+
+        @media screen and (max-width: 600px) {
+          width: 30px;
+        }
+
+        @media screen and (min-width: 601px) and (max-width: 768px) {
+          width: 55px;
+        }
+
+        @media screen and (min-width: 769px) and (max-width: 1200px) {
+          width: 65px;
+        }
       }
 
       h1 {
@@ -30,12 +42,31 @@
         background: linear-gradient(to right, #3043d7, #a24a2a);
         color: transparent;
         background-clip: text;
+
+        @media screen and (max-width: 400px) {
+          font-size: 30px;
+        }
+
+        @media screen and (min-width: 401px) and (max-width: 600px) {
+          font-size: 48px;
+        }
+
+        @media screen and (min-width: 601px) and (max-width: 768px) {
+          font-size: 62px;
+        }
+        @media screen and (min-width: 769px) and (max-width: 1200px) {
+          font-size: 72px;
+        }
       }
     }
 
     .features {
       display: flex;
       gap: 14px;
+
+      @media screen and (max-width: 1080px) {
+        flex-direction: column;
+      }
 
       .feature {
         border: 1px solid #aaa;
@@ -54,8 +85,11 @@
   }
 
   .inputContainer {
-    /* margin-top: auto; */
     width: 60%;
+
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
 
     form {
       width: 100%;
