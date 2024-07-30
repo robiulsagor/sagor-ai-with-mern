@@ -1,14 +1,15 @@
+import { Link } from "react-router-dom";
 import "./header.css";
 
 export const Header = () => {
   return (
     <header>
-      <a href="#" className="logo">
+      <Link to={"/"} className="logo">
         <img src="/logo.png" alt="" />
         sagor ai
-      </a>
+      </Link>
 
-      <div>Login</div>
+      <div className="login">Login</div>
     </header>
   );
 };

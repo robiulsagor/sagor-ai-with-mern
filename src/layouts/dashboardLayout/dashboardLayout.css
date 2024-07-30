@@ -1,0 +1,17 @@
+.dashboardLayout {
+  display: flex;
+  height: 100%;
+  overflow-x: hidden;
+  width: 100%;
+
+  .main {
+    flex: 4;
+    background: #12162e;
+  }
+}
+
+.hr {
+  background: #9c9c9c3f;
+  height: 1px;
+  border: none;
+}

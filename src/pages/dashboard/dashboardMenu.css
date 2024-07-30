@@ -1,0 +1,142 @@
+.menuIcon {
+  border: 1px solid rgb(168, 168, 168);
+  width: 36px;
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 100;
+  padding: 3px;
+  border-radius: 2px;
+
+  span {
+    flex: 1;
+    width: 100%;
+    background: #9b9b9bc0;
+    display: block;
+    transition: 0.3s;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 40%;
+  margin-right: 20px;
+  z-index: 20;
+
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    right: -20px;
+    transform: translateX(200px);
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    height: 100vh;
+    background: #12162e;
+    padding: 10px;
+    transition: 0.3s ease-in-out;
+    padding-top: 80px;
+
+    &.showMenu {
+      transform: translateX(0px);
+    }
+    &.hideMenu {
+      transform: translateX(400px);
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1200px) {
+    flex: none;
+    width: 200px;
+  }
+
+  .menuItems {
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin: 20px 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      span {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 700;
+        color: #9b9b9bc0;
+        margin-bottom: 5px;
+        /* margin-bottom: 20px; */
+      }
+
+      a {
+        margin-left: 8px;
+        padding: 8px 12px;
+        border-radius: 10px;
+
+        &:hover {
+          background: #8787872a;
+        }
+      }
+    }
+  }
+
+  .upgrade {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    /* margin-top: 20px; */
+    margin-top: auto;
+    text-align: center;
+
+    img {
+      width: 26px;
+      height: 26px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      p:nth-child(1) {
+        font-size: 14px;
+        font-weight: 700;
+        color: #cecdcd;
+      }
+      p:nth-child(2) {
+        font-size: 12px;
+        font-weight: 500;
+        color: #939191;
+      }
+    }
+  }
+}
+
+.sidebarWrapper.showMenu {
+  background: #000000e0;
+  opacity: 0.6;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  transition: 0.3s;
+}
