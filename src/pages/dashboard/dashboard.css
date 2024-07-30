@@ -1,0 +1,93 @@
+.dashboard-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+
+  .top {
+    /* background: rgb(48, 48, 134); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 35px;
+
+    .branding {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      img {
+        width: 100px;
+      }
+
+      h1 {
+        font-size: 90px;
+        text-transform: uppercase;
+        background: linear-gradient(to right, #3043d7, #a24a2a);
+        color: transparent;
+        background-clip: text;
+      }
+    }
+
+    .features {
+      display: flex;
+      gap: 14px;
+
+      .feature {
+        border: 1px solid #aaa;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        flex: 1;
+        min-width: 200px;
+
+        img {
+          width: 40px;
+        }
+      }
+    }
+  }
+
+  .inputContainer {
+    /* margin-top: auto; */
+    width: 60%;
+
+    form {
+      width: 100%;
+      border: 1px solid #aaa;
+      border-radius: 25px;
+      display: flex;
+      padding: 20px 10px;
+      color: #e0e0e0;
+      background: #9a999922;
+
+      input {
+        width: 100%;
+        background: transparent;
+        color: #e0e0e0;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        padding: 0 20px;
+      }
+
+      button {
+        background: #555;
+        border-radius: 100%;
+        border: none;
+        width: 30px;
+        height: 30px;
+
+        .btnImg {
+          width: 30px;
+          padding: 5px;
+        }
+      }
+    }
+  }
+}

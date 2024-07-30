@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./dashboardMenu.css";
 
 function DashboardMenu() {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
