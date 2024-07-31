@@ -1,6 +1,16 @@
+import { useUser } from "@clerk/clerk-react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./dashboard.css";
 
 const Dashboard = () => {
+  const { isSignedIn } = useUser();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    !isSignedIn && navigate("/sign-in");
+  }, [isSignedIn]);
+
   return (
     <div className="dashboard-container">
       <div className="top">

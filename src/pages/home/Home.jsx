@@ -1,7 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./home.css";
+import { useUser } from "@clerk/clerk-react";
+import { useEffect } from "react";
 
 const Home = () => {
+  const { isSignedIn } = useUser();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    isSignedIn && navigate("/dashboard");
+  }, [isSignedIn]);
+
   return (
     <div className="container">
       <img src="./orbital.png" className="bgImg" />

@@ -1,3 +1,4 @@
+import { UserButton } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
 import "./header.css";
 
@@ -9,7 +10,9 @@ export const Header = () => {
         sagor ai
       </Link>
 
-      <div className="login">Login</div>
+      <div className="login">
+        <UserButton />
+      </div>
     </header>
   );
 };
