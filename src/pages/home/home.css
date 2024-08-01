@@ -102,6 +102,29 @@
       }
     }
   }
+
+  .terms {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    z-index: 10;
+
+    img {
+      width: 20px;
+    }
+
+    .links {
+      display: flex;
+      gap: 15px;
+      font-size: 13px;
+    }
+  }
 }
 
 .bgImg {
@@ -109,6 +132,8 @@
   left: 0;
   bottom: 0;
   opacity: 0.06;
+  width: 60%;
+  z-index: -1;
 
   animation: animateOrbital 5s linear infinite alternate;
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */

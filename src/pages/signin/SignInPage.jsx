@@ -4,7 +4,7 @@ import "./signin.css";
 function SignInPage() {
   return (
     <div className="auth-container">
-      <SignIn signUpUrl="/sign-up" signInForceRedirectUrl={"/dashboard"} />
+      <SignIn signUpUrl="/sign-up" forceRedirectUrl={"/dashboard"} />
     </div>
   );
 }

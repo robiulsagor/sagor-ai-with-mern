@@ -4,11 +4,14 @@ import { useNavigate } from "react-router-dom";
 import "./dashboard.css";
 
 const Dashboard = () => {
-  const { isSignedIn } = useUser();
+  const { isSignedIn, isLoaded } = useUser();
   const navigate = useNavigate();
 
+  console.log(isSignedIn, isLoaded);
+
   useEffect(() => {
-    !isSignedIn && navigate("/sign-in");
+    isLoaded && !isSignedIn && navigate("/sign-in");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSignedIn]);
 
   return (

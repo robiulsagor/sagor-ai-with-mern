@@ -9,8 +9,6 @@ function DashboardMenu() {
     setShowMenu(!showMenu);
   };
 
-  console.log(showMenu);
-
   return (
     <>
       <div className="menuIcon" onClick={toggleMenu}>
@@ -22,7 +20,7 @@ function DashboardMenu() {
       <div className={`menu ${showMenu ? "showMenu" : "hideMenu"}`}>
         <div className="menuItems">
           <div>
-            <span>dashboard</span>
+            <span className="title">dashboard</span>
             <Link to="/">Create a new chat</Link>
             <Link to="/">Explore Sagor AI</Link>
             <Link to="/">Contact</Link>
@@ -30,10 +28,13 @@ function DashboardMenu() {
           <hr className="hr" />
 
           <div>
-            <span> recent chat</span>
+            <span className="title"> recent chat</span>
 
-            <Link to={"/"}>test</Link>
-            <Link to={"/"}>test</Link>
+            <div className="list">
+              <Link to={"/dashboard/chat/123"}>About AI</Link>
+              <Link to={"/dashboard/chat/123"}>About JS</Link>
+              <Link to={"/dashboard/chat/123"}>About React</Link>
+            </div>
           </div>
           <hr className="hr" />
         </div>
