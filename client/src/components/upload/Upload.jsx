@@ -23,7 +23,7 @@ const authenticator = async () => {
 };
 
 // eslint-disable-next-line react/prop-types
-const Upload = ({ setImg }) => {
+const Upload = ({ setImg, isLoading }) => {
   const onError = (err) => {
     console.log("Error", err);
   };
@@ -58,6 +58,7 @@ const Upload = ({ setImg }) => {
           hidden
           useUniqueFileName={true}
           id="file"
+          disabled={isLoading}
         ></IKUpload>
       </IKContext>
     </>

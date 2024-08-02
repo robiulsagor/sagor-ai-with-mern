@@ -28,6 +28,11 @@
         padding: 20px;
         text-align: justify;
 
+        p,
+        li {
+          margin: 10px 0;
+        }
+
         &.user {
           background-color: #2c2937;
           border-radius: 20px;
@@ -45,6 +50,15 @@
       width: 50%;
       background: #12162e;
       border-radius: 25px;
+
+      .loading {
+        /* background: #000; */
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        font-style: italic;
+        margin-bottom: 10px;
+      }
 
       form {
         width: 100%;
@@ -69,6 +83,10 @@
           font-size: 18px;
           padding: 0 20px;
           flex: 1;
+
+          &:disabled {
+            cursor: not-allowed;
+          }
         }
 
         button,
@@ -79,6 +97,10 @@
           width: 30px;
           height: 30px;
           cursor: pointer;
+
+          &:disabled {
+            cursor: not-allowed;
+          }
         }
       }
     }
