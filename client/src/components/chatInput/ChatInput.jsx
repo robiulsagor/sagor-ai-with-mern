@@ -2,8 +2,8 @@ import { IKImage } from "imagekitio-react";
 import { useEffect, useRef, useState } from "react";
 import Markdown from "react-markdown";
 import model from "../../../lib/gemini";
-import Upload from "../upload/Upload";
 import Loading from "../loading/Loading";
+import Upload from "../upload/Upload";
 
 const ChatInput = () => {
   const endRef = useRef(null);
@@ -14,6 +14,7 @@ const ChatInput = () => {
     isLoading: false,
     error: "",
     dbData: {},
+    aiData: {},
   });
 
   useEffect(() => {
@@ -22,10 +23,36 @@ const ChatInput = () => {
 
   async function run(text) {
     setQuestion(text);
-    const result = await model.generateContent(text);
-    const response = await result.response;
-    setAnswer(response.text());
-    setImg((prev) => ({ ...prev, isLoading: false }));
+
+    const chat = model.startChat({
+      history: [
+        {
+          role: "user",
+          parts: [{ text: "Hello, I have 2 dogs in my house." }],
+        },
+        {
+          role: "model",
+          parts: [{ text: "Great to meet you. What would you like to know?" }],
+        },
+      ],
+      generationConfig: {
+        // maxOutputTokens: 100,
+      },
+    });
+
+    const result = await chat.sendMessageStream(
+      Object.entries(img?.aiData).length ? [img.aiData, text] : [text]
+    );
+
+    let ans = "";
+    for await (const chunk of result.stream) {
+      const chunkText = chunk.text();
+      console.log(chunkText);
+      ans += chunkText;
+      setAnswer(ans);
+    }
+
+    setImg((prev) => ({ ...prev, isLoading: false, aiData: {}, dbData: {} }));
 
     console.log("answerr:: ", answer);
   }
@@ -46,6 +73,7 @@ const ChatInput = () => {
         <IKImage
           urlEndpoint={import.meta.env.VITE_IMGKIT_URL_ENDPOINT}
           path={img.dbData?.filePath}
+          className="dbImg"
         />
       )}
 
