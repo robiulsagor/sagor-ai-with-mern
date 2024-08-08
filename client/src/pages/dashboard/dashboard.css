@@ -96,7 +96,7 @@
       border: 1px solid #aaa;
       border-radius: 25px;
       display: flex;
-      padding: 20px 10px;
+      padding: 10px 10px;
       color: #e0e0e0;
       background: #9a999922;
 
@@ -106,7 +106,7 @@
         color: #e0e0e0;
         border: none;
         outline: none;
-        font-size: 18px;
+        font-size: 16px;
         padding: 0 20px;
       }
 
@@ -116,6 +116,12 @@
         border: none;
         width: 30px;
         height: 30px;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+          background: #a4a4a4;
+        }
 
         .btnImg {
           width: 30px;

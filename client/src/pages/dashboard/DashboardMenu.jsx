@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./dashboardMenu.css";
@@ -8,6 +9,24 @@ function DashboardMenu() {
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
+
+  const { isPending, isError, data, error } = useQuery({
+    queryKey: ["userchats"],
+    queryFn: () =>
+      fetch("http://localhost:5000/api/userchats", {
+        credentials: "include",
+      }).then((res) => res.json()),
+  });
+
+  // if (isPending) {
+  //   return <div>Loading...</div>;
+  // }
+
+  // if (isError) {
+  //   return <div>Error: {error.message}</div>;
+  // }
+
+  console.log(data);
 
   return (
     <>
@@ -30,11 +49,19 @@ function DashboardMenu() {
           <div>
             <span className="title"> recent chat</span>
 
-            <div className="list">
-              <Link to={"/dashboard/chat/123"}>About AI</Link>
-              <Link to={"/dashboard/chat/123"}>About JS</Link>
-              <Link to={"/dashboard/chat/123"}>About React</Link>
-            </div>
+            {isPending ? (
+              <p style={{ margin: "10px 0" }}>Loading...</p>
+            ) : (
+              data?.length && (
+                <div className="list">
+                  {data.map((item, i) => (
+                    <Link key={i} to={`/dashboard/chat/${item.id}`}>
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+              )
+            )}
           </div>
           <hr className="hr" />
         </div>

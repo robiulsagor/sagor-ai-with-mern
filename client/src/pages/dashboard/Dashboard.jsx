@@ -4,15 +4,27 @@ import { useNavigate } from "react-router-dom";
 import "./dashboard.css";
 
 const Dashboard = () => {
-  const { isSignedIn, isLoaded } = useUser();
+  const { isSignedIn, isLoaded, user } = useUser();
   const navigate = useNavigate();
-
-  console.log(isSignedIn, isLoaded);
 
   useEffect(() => {
     isLoaded && !isSignedIn && navigate("/sign-in");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSignedIn]);
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const text = e.target[0].value;
+
+    fetch("http://localhost:5000/api/chats", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userId: user.id, text }),
+    });
+  };
 
   return (
     <div className="dashboard-container">
@@ -41,7 +53,7 @@ const Dashboard = () => {
       </div>
 
       <div className="inputContainer">
-        <form action="">
+        <form onSubmit={submitHandler}>
           <input type="text" name="" id="" placeholder="Ask me anything..." />
           <button>
             <img src="./arrow.png" alt="" className="btnImg" />
